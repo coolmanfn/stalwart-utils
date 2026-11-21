@@ -1,6 +1,6 @@
 # Stalwart Utils
 
-[English](#english) | [ÑQÑÖÑÉÑÉÑ{ÑyÑz](#ÑÇÑÖÑÉÑÉÑ{ÑyÑz)
+[English](#english) | [–†—É—Å—Å–∫–∏–π](#—Ä—É—Å—Å–∫–∏–π)
 
 ---
 
@@ -10,13 +10,13 @@ Zero-dependency Python 3 utilities for automating multi-domain administration an
 
 ### Requirements
 
-- **Python 3.9+** (uses only the Python standard library Å\ no `pip` packages required)
+- **Python 3.9+** (uses only the Python standard library ‚Äî no `pip` packages required)
 - **OpenSSL CLI** (optional, used by `provision_domain.py` to inspect SAN/CN fields of DER certificates)
 - Administrative API token (Bearer) for Stalwart Mail Server
 
 ---
 
-### 1. `provision_domain.py` Å\ Multi-IP Domain Listeners, MTA Rules & TLS Audit
+### 1. `provision_domain.py` ‚Äî Multi-IP Domain Listeners, MTA Rules & TLS Audit
 
 Automates onboarding a dedicated IP and mail domain on a multi-tenant Stalwart instance, and verifies all mail services and TLS certificates (both with SNI and without SNI).
 
@@ -33,34 +33,34 @@ Automates onboarding a dedicated IP and mail domain on a multi-tenant Stalwart i
 
 **Provision a new domain and IP:**
 ```bash
-python3 provision_domain.py Ä
-  --lang en Ä
-  --url [https://mail.example.com](https://mail.example.com) Ä
-  --domain example.com Ä
+python3 provision_domain.py \
+  --lang en \
+  --url [https://mail.example.com](https://mail.example.com) \
+  --domain example.com \
   --ip 172.28.0.13
 ```
 
 **Verify ports, banners, and TLS certificates only (no API token required):**
 ```bash
-python3 provision_domain.py Ä
-  --lang en Ä
-  --check-only Ä
+python3 provision_domain.py \
+  --lang en \
+  --check-only \
   --domain example.com
 ```
 
 **Full read-only API configuration audit + live network probe:**
 ```bash
-python3 provision_domain.py Ä
-  --lang en Ä
-  --check-only Ä
-  --url [https://mail.example.com](https://mail.example.com) Ä
-  --domain example.com Ä
+python3 provision_domain.py \
+  --lang en \
+  --check-only \
+  --url [https://mail.example.com](https://mail.example.com) \
+  --domain example.com \
   --ip 172.28.0.13
 ```
 
 ---
 
-### 2. `kerio2stalwart.py` Å\ Kerio Connect to Stalwart JMAP Migration
+### 2. `kerio2stalwart.py` ‚Äî Kerio Connect to Stalwart JMAP Migration
 
 Migrates all users, aliases, quotas, mailbox folder hierarchies, message timestamps, and flags of a single domain from Kerio Connect (`users.cfg` + mailstore directory) to Stalwart Mail Server using JMAP.
 
@@ -82,132 +82,133 @@ Migrates all users, aliases, quotas, mailbox folder hierarchies, message timesta
 
 **Preview migration (`--dry-run`, no changes made):**
 ```bash
-python3 kerio2stalwart.py Ä
-  --lang en Ä
-  --users-cfg /opt/kerio/mailserver/users.cfg Ä
-  --domain-dir /store/mail/example.com Ä
-  --url [https://mail.example.com](https://mail.example.com) Ä
+python3 kerio2stalwart.py \
+  --lang en \
+  --users-cfg /opt/kerio/mailserver/users.cfg \
+  --domain-dir /store/mail/example.com \
+  --url [https://mail.example.com](https://mail.example.com) \
   --dry-run
 ```
 
 **Run full domain migration (interactive prompts for optional parameters):**
 ```bash
-python3 kerio2stalwart.py Ä
-  --lang en Ä
-  --users-cfg /opt/kerio/mailserver/users.cfg Ä
-  --domain-dir /store/mail/example.com Ä
+python3 kerio2stalwart.py \
+  --lang en \
+  --users-cfg /opt/kerio/mailserver/users.cfg \
+  --domain-dir /store/mail/example.com \
   --url [https://mail.example.com](https://mail.example.com)
 ```
 
 **Migrate accounts and aliases only (skip email import):**
 ```bash
-python3 kerio2stalwart.py Ä
-  --lang en Ä
-  --yes Ä
-  --skip-mail Ä
-  --users-cfg /opt/kerio/mailserver/users.cfg Ä
-  --domain-dir /store/mail/example.com Ä
+python3 kerio2stalwart.py \
+  --lang en \
+  --yes \
+  --skip-mail \
+  --users-cfg /opt/kerio/mailserver/users.cfg \
+  --domain-dir /store/mail/example.com \
   --url [https://mail.example.com](https://mail.example.com)
 ```
 
 ---
 
-## ÑQÑÖÑÉÑÉÑ{ÑyÑz
+## –†—É—Å—Å–∫–∏–π
 
-ÑTÑÑÑyÑ|ÑyÑÑÑç Ñ~Ñp Python 3 ÑqÑuÑx ÑrÑ~ÑuÑäÑ~ÑyÑá ÑxÑpÑrÑyÑÉÑyÑ}ÑÄÑÉÑÑÑuÑz ÑtÑ|Ñë ÑpÑrÑÑÑÄÑ}ÑpÑÑÑyÑxÑpÑàÑyÑy Ñ~ÑpÑÉÑÑÑÇÑÄÑzÑ{Ñy ÑtÑÄÑ}ÑuÑ~ÑÄÑr Ñy Ñ}ÑyÑsÑÇÑpÑàÑyÑy ÑÅÑÄÑâÑÑÑç Ñr [Stalwart Mail Server](https://stalw.art/) ÑâÑuÑÇÑuÑx ÑÅÑÇÑÄÑÑÑÄÑ{ÑÄÑ| JMAP.
+–£—Ç–∏–ª–∏—Ç—ã –Ω–∞ Python 3 –±–µ–∑ –≤–Ω–µ—à–Ω–∏—Ö –∑–∞–≤–∏—Å–∏–º–æ—Å—Ç–µ–π –¥–ª—è –∞–≤—Ç–æ–º–∞—Ç–∏–∑–∞—Ü–∏–∏ –Ω–∞—Å—Ç—Ä–æ–π–∫–∏ –¥–æ–º–µ–Ω–æ–≤ –∏ –º–∏–≥—Ä–∞—Ü–∏–∏ –ø–æ—á—Ç—ã –≤ [Stalwart Mail Server](https://stalw.art/) —á–µ—Ä–µ–∑ –ø—Ä–æ—Ç–æ–∫–æ–ª JMAP.
 
-### ÑSÑÇÑuÑqÑÄÑrÑpÑ~ÑyÑë
+### –¢—Ä–µ–±–æ–≤–∞–Ω–∏—è
 
-- **Python 3.9+** (ÑyÑÉÑÅÑÄÑ|ÑéÑxÑÖÑuÑÑÑÉÑë ÑÑÑÄÑ|ÑéÑ{ÑÄ ÑÉÑÑÑpÑ~ÑtÑpÑÇÑÑÑ~ÑpÑë ÑqÑyÑqÑ|ÑyÑÄÑÑÑuÑ{Ñp Python Å\ ÑÖÑÉÑÑÑpÑ~ÑÄÑrÑ{Ñp ÑÅÑpÑ{ÑuÑÑÑÄÑr ÑâÑuÑÇÑuÑx `pip` Ñ~Ñu ÑÑÑÇÑuÑqÑÖÑuÑÑÑÉÑë)
-- **OpenSSL CLI** (ÑÄÑÅÑàÑyÑÄÑ~ÑpÑ|ÑéÑ~ÑÄ, ÑyÑÉÑÅÑÄÑ|ÑéÑxÑÖÑuÑÑÑÉÑë Ñr `provision_domain.py` ÑtÑ|Ñë ÑâÑÑÑuÑ~ÑyÑë SAN/CN ÑyÑx DER-ÑÉÑuÑÇÑÑÑyÑÜÑyÑ{ÑpÑÑÑÄÑr)
-- Ñ@ÑtÑ}ÑyÑ~ÑyÑÉÑÑÑÇÑpÑÑÑyÑrÑ~ÑçÑz API-ÑÑÑÄÑ{ÑuÑ~ (Bearer) ÑÉÑuÑÇÑrÑuÑÇÑp Stalwart
+- **Python 3.9+** (–∏—Å–ø–æ–ª—å–∑—É–µ—Ç—Å—è —Ç–æ–ª—å–∫–æ —Å—Ç–∞–Ω–¥–∞—Ä—Ç–Ω–∞—è –±–∏–±–ª–∏–æ—Ç–µ–∫–∞ Python ‚Äî —É—Å—Ç–∞–Ω–æ–≤–∫–∞ –ø–∞–∫–µ—Ç–æ–≤ —á–µ—Ä–µ–∑ `pip` –Ω–µ —Ç—Ä–µ–±—É–µ—Ç—Å—è)
+- **OpenSSL CLI** (–æ–ø—Ü–∏–æ–Ω–∞–ª—å–Ω–æ, –∏—Å–ø–æ–ª—å–∑—É–µ—Ç—Å—è –≤ `provision_domain.py` –¥–ª—è —á—Ç–µ–Ω–∏—è SAN/CN –∏–∑ DER-—Å–µ—Ä—Ç–∏—Ñ–∏–∫–∞—Ç–æ–≤)
+- –ê–¥–º–∏–Ω–∏—Å—Ç—Ä–∞—Ç–∏–≤–Ω—ã–π API-—Ç–æ–∫–µ–Ω (Bearer) —Å–µ—Ä–≤–µ—Ä–∞ Stalwart
 
 ---
 
-### 1. `provision_domain.py` Å\ ÑNÑpÑÉÑÑÑÇÑÄÑzÑ{Ñp Listeners, ÑÅÑÇÑpÑrÑyÑ| MTA Ñy ÑÅÑÇÑÄÑrÑuÑÇÑ{Ñp TLS ÑtÑ|Ñë ÑtÑÄÑ}ÑuÑ~Ñp
+### 1. `provision_domain.py` ‚Äî –ù–∞—Å—Ç—Ä–æ–π–∫–∞ Listeners, –ø—Ä–∞–≤–∏–ª MTA –∏ –ø—Ä–æ–≤–µ—Ä–∫–∞ TLS –¥–ª—è –¥–æ–º–µ–Ω–∞
 
-Ñ@ÑrÑÑÑÄÑ}ÑpÑÑÑyÑxÑyÑÇÑÖÑuÑÑ ÑÅÑÄÑtÑ{Ñ|ÑêÑâÑuÑ~ÑyÑu ÑrÑçÑtÑuÑ|ÑuÑ~Ñ~ÑÄÑsÑÄ IP-ÑpÑtÑÇÑuÑÉÑp Ñy ÑÅÑÄÑâÑÑÑÄÑrÑÄÑsÑÄ ÑtÑÄÑ}ÑuÑ~Ñp Ñ~Ñp multi-IP ÑyÑ~ÑÉÑÑÑpÑ~ÑÉÑu Stalwart, Ñp ÑÑÑpÑ{ÑwÑu ÑÅÑÇÑÄÑrÑuÑÇÑëÑuÑÑ ÑÇÑpÑqÑÄÑÑÑÖ ÑrÑÉÑuÑá ÑÅÑÄÑâÑÑÑÄÑrÑçÑá ÑÉÑ|ÑÖÑwÑq Ñy ÑrÑçÑtÑpÑâÑÖ TLS-ÑÉÑuÑÇÑÑÑyÑÜÑyÑ{ÑpÑÑÑÄÑr (Ñ{ÑpÑ{ ÑÉ SNI, ÑÑÑpÑ{ Ñy ÑqÑuÑx SNI).
+–ê–≤—Ç–æ–º–∞—Ç–∏–∑–∏—Ä—É–µ—Ç –ø–æ–¥–∫–ª—é—á–µ–Ω–∏–µ –≤—ã–¥–µ–ª–µ–Ω–Ω–æ–≥–æ IP-–∞–¥—Ä–µ—Å–∞ –∏ –ø–æ—á—Ç–æ–≤–æ–≥–æ –¥–æ–º–µ–Ω–∞ –Ω–∞ multi-IP –∏–Ω—Å—Ç–∞–Ω—Å–µ Stalwart, –∞ —Ç–∞–∫–∂–µ –ø—Ä–æ–≤–µ—Ä—è–µ—Ç —Ä–∞–±–æ—Ç—É –≤—Å–µ—Ö –ø–æ—á—Ç–æ–≤—ã—Ö —Å–ª—É–∂–± –∏ –≤—ã–¥–∞—á—É TLS-—Å–µ—Ä—Ç–∏—Ñ–∏–∫–∞—Ç–æ–≤ (–∫–∞–∫ —Å SNI, —Ç–∞–∫ –∏ –±–µ–∑ SNI).
 
-#### ÑBÑÄÑxÑ}ÑÄÑwÑ~ÑÄÑÉÑÑÑy
-- ÑRÑÄÑxÑtÑpÑvÑÑ ÑyÑ|Ñy ÑÅÑÇÑÄÑrÑuÑÇÑëÑuÑÑ `x:Domain` ÑÉ ÑpÑrÑÑÑÄÑ}ÑpÑÑÑyÑâÑuÑÉÑ{ÑyÑ} ÑÖÑÅÑÇÑpÑrÑ|ÑuÑ~ÑyÑuÑ} DKIM.
-- ÑRÑÄÑxÑtÑpÑvÑÑ ÑrÑÉÑu 8 ÑÉÑuÑÑÑuÑrÑçÑá ÑÉÑ|ÑÖÑäÑpÑÑÑuÑ|ÑuÑz `x:NetworkListener` Ñ~Ñp ÑrÑ~ÑÖÑÑÑÇÑuÑ~Ñ~ÑuÑ}/Docker IP ÑtÑÄÑ}ÑuÑ~Ñp (`25`, `587`, `465`, `143`, `993`, `110`, `995`, `4190`) Ñy ÑÅÑÇÑyÑrÑëÑxÑçÑrÑpÑuÑÑ ÑÉÑuÑÇÑÑÑyÑÜÑyÑ{ÑpÑÑ `x:Certificate` (`defaultCertificateId`), ÑâÑÑÑÄÑqÑç Ñ{Ñ|ÑyÑuÑ~ÑÑÑç ÑqÑuÑx SNI ÑÅÑÄÑ|ÑÖÑâÑpÑ|Ñy ÑÉÑuÑÇÑÑÑyÑÜÑyÑ{ÑpÑÑ Ñ~ÑÖÑwÑ~ÑÄÑsÑÄ ÑtÑÄÑ}ÑuÑ~Ñp.
-- ÑPÑÇÑy ÑyÑÉÑÅÑÄÑ|ÑéÑxÑÄÑrÑpÑ~ÑyÑy ÑÇÑuÑwÑyÑ}Ñp `EnableSome` Ñr `x:ServerRole` ÑpÑrÑÑÑÄÑ}ÑpÑÑÑyÑâÑuÑÉÑ{Ñy ÑtÑÄÑqÑpÑrÑ|ÑëÑuÑÑ ÑÉÑÄÑxÑtÑpÑ~Ñ~ÑçÑu ÑÉÑ|ÑÖÑäÑpÑÑÑuÑ|Ñy Ñr `listenerIds`.
-- ÑNÑpÑÉÑÑÑÇÑpÑyÑrÑpÑuÑÑ ÑrÑáÑÄÑtÑëÑãÑyÑu ÑÅÑÇÑpÑrÑyÑ|Ñp `x:MtaStageConnect` (`hostname` Ñy ÑqÑpÑ~Ñ~ÑuÑÇ `220` ÑÅÑÄ `local_ip`) Ñy ÑyÑÉÑáÑÄÑtÑëÑãÑÖÑê Ñ}ÑpÑÇÑäÑÇÑÖÑÑÑyÑxÑpÑàÑyÑê `x:MtaConnectionStrategy` + `x:MtaOutboundStrategy` (ÑÅÑÇÑyÑrÑëÑxÑ{Ñp ÑyÑÉÑáÑÄÑtÑëÑãÑuÑsÑÄ IP Ñy `ehloHostname` ÑÅÑÄ `sender_domain`).
-- ÑBÑçÑxÑçÑrÑpÑuÑÑ ÑÅÑuÑÇÑuÑxÑpÑsÑÇÑÖÑxÑ{ÑÖ Ñ{ÑÄÑ~ÑÜÑyÑsÑÖÑÇÑpÑàÑyÑy (`ReloadSettings`) ÑâÑuÑÇÑuÑx JMAP.
-- **ÑQÑuÑwÑyÑ} ÑÅÑÇÑÄÑrÑuÑÇÑ{Ñy (`--check-only`)**: ÑrÑçÑÅÑÄÑ|Ñ~ÑëÑuÑÑ read-only ÑpÑÖÑtÑyÑÑ Ñ{ÑÄÑ~ÑÜÑyÑsÑÖÑÇÑpÑàÑyÑy ÑâÑuÑÇÑuÑx API (ÑÄÑÅÑàÑyÑÄÑ~ÑpÑ|ÑéÑ~ÑÄ) Ñy ÑÑÑuÑÉÑÑÑyÑÇÑÖÑuÑÑ ÑrÑÉÑu 8 ÑÅÑÄÑÇÑÑÑÄÑr (`STARTTLS` Ñy `Implicit TLS`), ÑÅÑÇÑÄÑrÑuÑÇÑëÑë ÑÅÑÇÑyÑrÑuÑÑÑÉÑÑÑrÑyÑë ÑÅÑÇÑÄÑÑÑÄÑ{ÑÄÑ|ÑÄÑr Ñy ÑÉÑuÑÇÑÑÑyÑÜÑyÑ{ÑpÑÑÑç **ÑÉ SNI** Ñy **ÑqÑuÑx SNI**.
-- ÑBÑçÑqÑÄÑÇ ÑëÑxÑçÑ{Ñp: `--lang ru` (ÑÅÑÄ ÑÖÑ}ÑÄÑ|ÑâÑpÑ~ÑyÑê) ÑyÑ|Ñy `--lang en` (Ñ|ÑyÑqÑÄ ÑÅÑuÑÇÑuÑ}ÑuÑ~Ñ~ÑpÑë `PROVISION_LANG`).
+#### –í–æ–∑–º–æ–∂–Ω–æ—Å—Ç–∏
+- –°–æ–∑–¥–∞—ë—Ç –∏–ª–∏ –ø—Ä–æ–≤–µ—Ä—è–µ—Ç `x:Domain` —Å –∞–≤—Ç–æ–º–∞—Ç–∏—á–µ—Å–∫–∏–º —É–ø—Ä–∞–≤–ª–µ–Ω–∏–µ–º DKIM.
+- –°–æ–∑–¥–∞—ë—Ç –≤—Å–µ 8 —Å–µ—Ç–µ–≤—ã—Ö —Å–ª—É—à–∞—Ç–µ–ª–µ–π `x:NetworkListener` –Ω–∞ –≤–Ω—É—Ç—Ä–µ–Ω–Ω–µ–º/Docker IP –¥–æ–º–µ–Ω–∞ (`25`, `587`, `465`, `143`, `993`, `110`, `995`, `4190`) –∏ –ø—Ä–∏–≤—è–∑—ã–≤–∞–µ—Ç —Å–µ—Ä—Ç–∏—Ñ–∏–∫–∞—Ç `x:Certificate` (`defaultCertificateId`), —á—Ç–æ–±—ã –∫–ª–∏–µ–Ω—Ç—ã –±–µ–∑ SNI –ø–æ–ª—É—á–∞–ª–∏ —Å–µ—Ä—Ç–∏—Ñ–∏–∫–∞—Ç –Ω—É–∂–Ω–æ–≥–æ –¥–æ–º–µ–Ω–∞.
+- –ü—Ä–∏ –∏—Å–ø–æ–ª—å–∑–æ–≤–∞–Ω–∏–∏ —Ä–µ–∂–∏–º–∞ `EnableSome` –≤ `x:ServerRole` –∞–≤—Ç–æ–º–∞—Ç–∏—á–µ—Å–∫–∏ –¥–æ–±–∞–≤–ª—è–µ—Ç —Å–æ–∑–¥–∞–Ω–Ω—ã–µ —Å–ª—É—à–∞—Ç–µ–ª–∏ –≤ `listenerIds`.
+- –ù–∞—Å—Ç—Ä–∞–∏–≤–∞–µ—Ç –≤—Ö–æ–¥—è—â–∏–µ –ø—Ä–∞–≤–∏–ª–∞ `x:MtaStageConnect` (`hostname` –∏ –±–∞–Ω–Ω–µ—Ä `220` –ø–æ `local_ip`) –∏ –∏—Å—Ö–æ–¥—è—â—É—é –º–∞—Ä—à—Ä—É—Ç–∏–∑–∞—Ü–∏—é `x:MtaConnectionStrategy` + `x:MtaOutboundStrategy` (–ø—Ä–∏–≤—è–∑–∫–∞ –∏—Å—Ö–æ–¥—è—â–µ–≥–æ IP –∏ `ehloHostname` –ø–æ `sender_domain`).
+- –í—ã–∑—ã–≤–∞–µ—Ç –ø–µ—Ä–µ–∑–∞–≥—Ä—É–∑–∫—É –∫–æ–Ω—Ñ–∏–≥—É—Ä–∞—Ü–∏–∏ (`ReloadSettings`) —á–µ—Ä–µ–∑ JMAP.
+- **–†–µ–∂–∏–º –ø—Ä–æ–≤–µ—Ä–∫–∏ (`--check-only`)**: –≤—ã–ø–æ–ª–Ω—è–µ—Ç read-only –∞—É–¥–∏—Ç –∫–æ–Ω—Ñ–∏–≥—É—Ä–∞—Ü–∏–∏ —á–µ—Ä–µ–∑ API (–æ–ø—Ü–∏–æ–Ω–∞–ª—å–Ω–æ) –∏ —Ç–µ—Å—Ç–∏—Ä—É–µ—Ç –≤—Å–µ 8 –ø–æ—Ä—Ç–æ–≤ (`STARTTLS` –∏ `Implicit TLS`), –ø—Ä–æ–≤–µ—Ä—è—è –ø—Ä–∏–≤–µ—Ç—Å—Ç–≤–∏—è –ø—Ä–æ—Ç–æ–∫–æ–ª–æ–≤ –∏ —Å–µ—Ä—Ç–∏—Ñ–∏–∫–∞—Ç—ã **—Å SNI** –∏ **–±–µ–∑ SNI**.
+- –í—ã–±–æ—Ä —è–∑—ã–∫–∞: `--lang ru` (–ø–æ —É–º–æ–ª—á–∞–Ω–∏—é) –∏–ª–∏ `--lang en` (–ª–∏–±–æ –ø–µ—Ä–µ–º–µ–Ω–Ω–∞—è `PROVISION_LANG`).
 
-#### ÑPÑÇÑyÑ}ÑuÑÇÑç ÑxÑpÑÅÑÖÑÉÑ{Ñp
+#### –ü—Ä–∏–º–µ—Ä—ã –∑–∞–ø—É—Å–∫–∞
 
-**ÑNÑpÑÉÑÑÑÇÑÄÑzÑ{Ñp Ñ~ÑÄÑrÑÄÑsÑÄ ÑtÑÄÑ}ÑuÑ~Ñp Ñy IP:**
+**–ù–∞—Å—Ç—Ä–æ–π–∫–∞ –Ω–æ–≤–æ–≥–æ –¥–æ–º–µ–Ω–∞ –∏ IP:**
 ```bash
-python3 provision_domain.py Ä
-  --url [https://mail.example.com](https://mail.example.com) Ä
-  --domain example.com Ä
+python3 provision_domain.py \
+  --url [https://mail.example.com](https://mail.example.com) \
+  --domain example.com \
   --ip 172.28.0.13
 ```
 
-**ÑSÑÄÑ|ÑéÑ{ÑÄ ÑÅÑÇÑÄÑrÑuÑÇÑ{Ñp ÑÅÑÄÑÇÑÑÑÄÑr, ÑqÑpÑ~Ñ~ÑuÑÇÑÄÑr Ñy TLS-ÑÉÑuÑÇÑÑÑyÑÜÑyÑ{ÑpÑÑÑÄÑr (ÑÑÑÄÑ{ÑuÑ~ API Ñ~Ñu ÑÑÑÇÑuÑqÑÖÑuÑÑÑÉÑë):**
+**–¢–æ–ª—å–∫–æ –ø—Ä–æ–≤–µ—Ä–∫–∞ –ø–æ—Ä—Ç–æ–≤, –±–∞–Ω–Ω–µ—Ä–æ–≤ –∏ TLS-—Å–µ—Ä—Ç–∏—Ñ–∏–∫–∞—Ç–æ–≤ (—Ç–æ–∫–µ–Ω API –Ω–µ —Ç—Ä–µ–±—É–µ—Ç—Å—è):**
 ```bash
-python3 provision_domain.py Ä
-  --check-only Ä
+python3 provision_domain.py \
+  --check-only \
   --domain example.com
 ```
 
-**ÑPÑÄÑ|Ñ~ÑçÑz read-only ÑpÑÖÑtÑyÑÑ Ñ~ÑpÑÉÑÑÑÇÑÄÑuÑ{ Ñr API Stalwart + ÑÉÑuÑÑÑuÑrÑpÑë ÑÅÑÇÑÄÑrÑuÑÇÑ{Ñp ÑÅÑÄÑÇÑÑÑÄÑr:**
+**–ü–æ–ª–Ω—ã–π read-only –∞—É–¥–∏—Ç –Ω–∞—Å—Ç—Ä–æ–µ–∫ –≤ API Stalwart + —Å–µ—Ç–µ–≤–∞—è –ø—Ä–æ–≤–µ—Ä–∫–∞ –ø–æ—Ä—Ç–æ–≤:**
 ```bash
-python3 provision_domain.py Ä
-  --check-only Ä
-  --url [https://mail.example.com](https://mail.example.com) Ä
-  --domain example.com Ä
+python3 provision_domain.py \
+  --check-only \
+  --url [https://mail.example.com](https://mail.example.com) \
+  --domain example.com \
   --ip 172.28.0.13
 ```
 
 ---
 
-### 2. `kerio2stalwart.py` Å\ ÑMÑyÑsÑÇÑpÑàÑyÑë ÑtÑÄÑ}ÑuÑ~Ñp ÑyÑx Kerio Connect Ñr Stalwart ÑâÑuÑÇÑuÑx JMAP
+### 2. `kerio2stalwart.py` ‚Äî –ú–∏–≥—Ä–∞—Ü–∏—è –¥–æ–º–µ–Ω–∞ –∏–∑ Kerio Connect –≤ Stalwart —á–µ—Ä–µ–∑ JMAP
 
-ÑPÑuÑÇÑuÑ~ÑÄÑÉÑyÑÑ ÑrÑÉÑuÑá ÑÅÑÄÑ|ÑéÑxÑÄÑrÑpÑÑÑuÑ|ÑuÑz, ÑpÑ|ÑyÑpÑÉÑç, Ñ{ÑrÑÄÑÑÑç, ÑtÑuÑÇÑuÑrÑÄ ÑÅÑpÑÅÑÄÑ{, ÑtÑpÑÑÑç ÑÅÑÄÑ|ÑÖÑâÑuÑ~ÑyÑë Ñy ÑÜÑ|ÑpÑsÑy ÑÅÑyÑÉÑuÑ} ÑÄÑtÑ~ÑÄÑsÑÄ ÑtÑÄÑ}ÑuÑ~Ñp ÑyÑx Kerio Connect (`users.cfg` + Ñ{ÑpÑÑÑpÑ|ÑÄÑs ÑtÑÄÑ}ÑuÑ~Ñp Ñ~Ñp ÑtÑyÑÉÑ{Ñu) Ñr Stalwart Mail Server ÑâÑuÑÇÑuÑx JMAP.
+–ü–µ—Ä–µ–Ω–æ—Å–∏—Ç –≤—Å–µ—Ö –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª–µ–π, –∞–ª–∏–∞—Å—ã, –∫–≤–æ—Ç—ã, –¥–µ—Ä–µ–≤–æ –ø–∞–ø–æ–∫, –¥–∞—Ç—ã –ø–æ–ª—É—á–µ–Ω–∏—è –∏ —Ñ–ª–∞–≥–∏ –ø–∏—Å–µ–º –æ–¥–Ω–æ–≥–æ –¥–æ–º–µ–Ω–∞ –∏–∑ Kerio Connect (`users.cfg` + –∫–∞—Ç–∞–ª–æ–≥ –¥–æ–º–µ–Ω–∞ –Ω–∞ –¥–∏—Å–∫–µ) –≤ Stalwart Mail Server —á–µ—Ä–µ–∑ JMAP.
 
-#### ÑBÑÄÑxÑ}ÑÄÑwÑ~ÑÄÑÉÑÑÑy
-- **ÑAÑçÑÉÑÑÑÇÑçÑz ÑyÑ}ÑÅÑÄÑÇÑÑ ÑâÑuÑÇÑuÑx JMAP**: ÑxÑpÑsÑÇÑÖÑwÑpÑuÑÑ `.eml`-ÑÜÑpÑzÑ|Ñç ÑÅÑpÑÇÑpÑ|Ñ|ÑuÑ|ÑéÑ~ÑÄ ÑâÑuÑÇÑuÑx `uploadUrl` Ñy ÑyÑ}ÑÅÑÄÑÇÑÑÑyÑÇÑÖÑuÑÑ ÑÅÑyÑÉÑéÑ}Ñp ÑÅÑpÑ{ÑuÑÑÑpÑ}Ñy ÑâÑuÑÇÑuÑx `Email/import`.
-- **ÑRÑÄÑqÑ|ÑêÑtÑuÑ~ÑyÑu Ñ|ÑyÑ}ÑyÑÑÑÄÑr ÑÉÑuÑÇÑrÑuÑÇÑp**: ÑpÑrÑÑÑÄÑ}ÑpÑÑÑyÑâÑuÑÉÑ{Ñy ÑÉÑâÑyÑÑÑçÑrÑpÑuÑÑ `maxSizeUpload`, `maxConcurrentUpload`, `maxObjectsInSet` Ñy `maxSizeRequest` ÑyÑx `/jmap/session`, ÑÄÑqÑÇÑpÑqÑpÑÑÑçÑrÑpÑuÑÑ `HTTP 429/503` (`Retry-After`) Ñy ÑÅÑÇÑÄÑÅÑÖÑÉÑ{ÑpÑuÑÑ ÑÅÑyÑÉÑéÑ}Ñp, ÑÅÑÇÑuÑrÑçÑäÑpÑêÑãÑyÑu Ñ}ÑpÑ{ÑÉÑyÑ}ÑpÑ|ÑéÑ~ÑçÑz ÑÇÑpÑxÑ}ÑuÑÇ ÑxÑpÑsÑÇÑÖÑxÑ{Ñy.
-- **ÑRÑÄÑáÑÇÑpÑ~ÑuÑ~ÑyÑu ÑÉÑÑÑÇÑÖÑ{ÑÑÑÖÑÇÑç Ñy Ñ}ÑuÑÑÑpÑtÑpÑ~Ñ~ÑçÑá**:
-  - ÑMÑpÑÅÑÅÑyÑÑ ÑÉÑyÑÉÑÑÑuÑ}Ñ~ÑçÑu ÑÅÑpÑÅÑ{Ñy Kerio (`Sent Items` -> `Sent`, `Deleted Items` -> `Trash`, `Junk E-mail` -> `Junk`, `Drafts` -> `Drafts`) Ñy ÑrÑ|ÑÄÑwÑuÑ~Ñ~ÑçÑu ÑÅÑÄÑ|ÑéÑxÑÄÑrÑpÑÑÑuÑ|ÑéÑÉÑ{ÑyÑu ÑÅÑpÑÅÑ{Ñy.
-  - ÑXÑyÑÑÑpÑuÑÑ `index.fld` ÑtÑ|Ñë ÑÅÑuÑÇÑuÑ~ÑÄÑÉÑp ÑÄÑÇÑyÑsÑyÑ~ÑpÑ|ÑéÑ~ÑçÑá ÑtÑpÑÑ (`receivedAt`) Ñy ÑÜÑ|ÑpÑsÑÄÑr (`$seen`, `$answered`, `$flagged`, `$draft`), ÑÄÑÑÑÜÑyÑ|ÑéÑÑÑÇÑÄÑrÑçÑrÑpÑë ÑÉÑ|ÑÖÑwÑuÑqÑ~ÑçÑu ÑèÑ|ÑuÑ}ÑuÑ~ÑÑÑç MAPI (`IPM.Appointment`, `IPM.Contact`, `IPM.Task`).
-- **ÑIÑtÑuÑ}ÑÅÑÄÑÑÑuÑ~ÑÑÑ~ÑÄÑÉÑÑÑé**: ÑÅÑÇÑÄÑrÑuÑÇÑëÑuÑÑ ÑÉÑÖÑãÑuÑÉÑÑÑrÑÖÑêÑãÑyÑu `Message-ID` Ñr ÑàÑuÑ|ÑuÑrÑçÑá ÑÅÑpÑÅÑ{ÑpÑá ÑÅÑuÑÇÑuÑt ÑxÑpÑsÑÇÑÖÑxÑ{ÑÄÑz Å\ ÑÅÑÄÑrÑÑÑÄÑÇÑ~ÑçÑz ÑxÑpÑÅÑÖÑÉÑ{ Ñ~Ñu ÑÉÑÄÑxÑtÑpÑvÑÑ ÑtÑÖÑqÑ|ÑyÑ{ÑpÑÑÑÄÑr.
-- **ÑTÑÅÑÇÑpÑrÑ|ÑuÑ~ÑyÑu ÑÅÑpÑÇÑÄÑ|ÑëÑ}Ñy (`--password-mode`)**:
-  - `auto` (ÑÅÑÄ ÑÖÑ}ÑÄÑ|ÑâÑpÑ~ÑyÑê): ÑÉÑÄÑáÑÇÑpÑ~ÑëÑuÑÑ ÑÉÑÄÑrÑ}ÑuÑÉÑÑÑyÑ}ÑçÑu ÑáÑuÑäÑy (`{ARGON2ID}`, `{SSHA}`, `$2...`, `$6$...` Ñy ÑtÑÇ.), Ñp ÑtÑ|Ñë ÑÅÑÇÑÄÑÅÑÇÑyÑuÑÑÑpÑÇÑ~ÑçÑá ÑxÑpÑÅÑyÑÉÑuÑz Kerio `D3S:` ÑsÑuÑ~ÑuÑÇÑyÑÇÑÖÑuÑÑ Ñ~ÑpÑtÑvÑwÑ~ÑçÑu ÑÉÑ|ÑÖÑâÑpÑzÑ~ÑçÑu ÑÅÑpÑÇÑÄÑ|Ñy.
-  - `random`: ÑsÑuÑ~ÑuÑÇÑyÑÇÑÖÑuÑÑ Ñ~ÑÄÑrÑçÑu ÑÉÑ|ÑÖÑâÑpÑzÑ~ÑçÑu ÑÅÑpÑÇÑÄÑ|Ñy ÑtÑ|Ñë ÑrÑÉÑuÑá ÑÅÑÄÑ|ÑéÑxÑÄÑrÑpÑÑÑuÑ|ÑuÑz.
-  - `default`: ÑxÑpÑtÑpÑvÑÑ ÑuÑtÑyÑ~ÑçÑz ÑÅÑpÑÇÑÄÑ|Ñé ÑtÑ|Ñë ÑrÑÉÑuÑá ÑÅÑuÑÇÑuÑ~ÑÄÑÉÑyÑ}ÑçÑá ÑpÑ{Ñ{ÑpÑÖÑ~ÑÑÑÄÑr.
-  - ÑRÑÄÑáÑÇÑpÑ~ÑëÑuÑÑ ÑyÑÑÑÄÑsÑÄÑrÑçÑz CSV-ÑÄÑÑÑâÑvÑÑ ÑÉ ÑÅÑpÑÇÑÄÑ|ÑëÑ}Ñy Ñy ÑÅÑÇÑpÑrÑyÑ|ÑpÑ}Ñy ÑÅÑuÑÇÑuÑÉÑçÑ|Ñ{Ñy ÑÉ ÑÅÑÇÑpÑrÑpÑ}Ñy `0600`.
-- **ÑIÑ~ÑÑÑuÑÇÑpÑ{ÑÑÑyÑrÑ~ÑçÑz Ñy ÑpÑrÑÑÑÄÑ}ÑpÑÑÑyÑâÑuÑÉÑ{ÑyÑz ÑÇÑuÑwÑyÑ}Ñç**: ÑxÑpÑÅÑÇÑpÑäÑyÑrÑpÑuÑÑ Ñ|ÑêÑqÑÄÑz Ñ~ÑuÑxÑpÑtÑpÑ~Ñ~ÑçÑz ÑÅÑpÑÇÑpÑ}ÑuÑÑÑÇ ÑÉ ÑÅÑÄÑtÑÉÑ{ÑpÑxÑ{ÑÄÑz ÑxÑ~ÑpÑâÑuÑ~ÑyÑë ÑÅÑÄ ÑÖÑ}ÑÄÑ|ÑâÑpÑ~ÑyÑê, Ñ|ÑyÑqÑÄ ÑxÑpÑÅÑÖÑÉÑ{ÑpÑuÑÑÑÉÑë ÑqÑuÑx ÑrÑÄÑÅÑÇÑÄÑÉÑÄÑr ÑÉ ÑÜÑ|ÑpÑsÑÄÑ} `--yes` (`-y`).
+#### –í–æ–∑–º–æ–∂–Ω–æ—Å—Ç–∏
+- **–ë—ã—Å—Ç—Ä—ã–π –∏–º–ø–æ—Ä—Ç —á–µ—Ä–µ–∑ JMAP**: –∑–∞–≥—Ä—É–∂–∞–µ—Ç `.eml`-—Ñ–∞–π–ª—ã –ø–∞—Ä–∞–ª–ª–µ–ª—å–Ω–æ —á–µ—Ä–µ–∑ `uploadUrl` –∏ –∏–º–ø–æ—Ä—Ç–∏—Ä—É–µ—Ç –ø–∏—Å—å–º–∞ –ø–∞–∫–µ—Ç–∞–º–∏ —á–µ—Ä–µ–∑ `Email/import`.
+- **–°–æ–±–ª—é–¥–µ–Ω–∏–µ –ª–∏–º–∏—Ç–æ–≤ —Å–µ—Ä–≤–µ—Ä–∞**: –∞–≤—Ç–æ–º–∞—Ç–∏—á–µ—Å–∫–∏ —Å—á–∏—Ç—ã–≤–∞–µ—Ç `maxSizeUpload`, `maxConcurrentUpload`, `maxObjectsInSet` –∏ `maxSizeRequest` –∏–∑ `/jmap/session`, –æ–±—Ä–∞–±–∞—Ç—ã–≤–∞–µ—Ç `HTTP 429/503` (`Retry-After`) –∏ –ø—Ä–æ–ø—É—Å–∫–∞–µ—Ç –ø–∏—Å—å–º–∞, –ø—Ä–µ–≤—ã—à–∞—é—â–∏–µ –º–∞–∫—Å–∏–º–∞–ª—å–Ω—ã–π —Ä–∞–∑–º–µ—Ä –∑–∞–≥—Ä—É–∑–∫–∏.
+- **–°–æ—Ö—Ä–∞–Ω–µ–Ω–∏–µ —Å—Ç—Ä—É–∫—Ç—É—Ä—ã –∏ –º–µ—Ç–∞–¥–∞–Ω–Ω—ã—Ö**:
+  - –ú–∞–ø–ø–∏—Ç —Å–∏—Å—Ç–µ–º–Ω—ã–µ –ø–∞–ø–∫–∏ Kerio (`Sent Items` -> `Sent`, `Deleted Items` -> `Trash`, `Junk E-mail` -> `Junk`, `Drafts` -> `Drafts`) –∏ –≤–ª–æ–∂–µ–Ω–Ω—ã–µ –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª—å—Å–∫–∏–µ –ø–∞–ø–∫–∏.
+  - –ß–∏—Ç–∞–µ—Ç `index.fld` –¥–ª—è –ø–µ—Ä–µ–Ω–æ—Å–∞ –æ—Ä–∏–≥–∏–Ω–∞–ª—å–Ω—ã—Ö –¥–∞—Ç (`receivedAt`) –∏ —Ñ–ª–∞–≥–æ–≤ (`$seen`, `$answered`, `$flagged`, `$draft`), –æ—Ç—Ñ–∏–ª—å—Ç—Ä–æ–≤—ã–≤–∞—è —Å–ª—É–∂–µ–±–Ω—ã–µ —ç–ª–µ–º–µ–Ω—Ç—ã MAPI (`IPM.Appointment`, `IPM.Contact`, `IPM.Task`).
+- **–ò–¥–µ–º–ø–æ—Ç–µ–Ω—Ç–Ω–æ—Å—Ç—å**: –ø—Ä–æ–≤–µ—Ä—è–µ—Ç —Å—É—â–µ—Å—Ç–≤—É—é—â–∏–µ `Message-ID` –≤ —Ü–µ–ª–µ–≤—ã—Ö –ø–∞–ø–∫–∞—Ö –ø–µ—Ä–µ–¥ –∑–∞–≥—Ä—É–∑–∫–æ–π ‚Äî –ø–æ–≤—Ç–æ—Ä–Ω—ã–π –∑–∞–ø—É—Å–∫ –Ω–µ —Å–æ–∑–¥–∞—ë—Ç –¥—É–±–ª–∏–∫–∞—Ç–æ–≤.
+- **–£–ø—Ä–∞–≤–ª–µ–Ω–∏–µ –ø–∞—Ä–æ–ª—è–º–∏ (`--password-mode`)**:
+  - `auto` (–ø–æ —É–º–æ–ª—á–∞–Ω–∏—é): —Å–æ—Ö—Ä–∞–Ω—è–µ—Ç —Å–æ–≤–º–µ—Å—Ç–∏–º—ã–µ —Ö–µ—à–∏ (`{ARGON2ID}`, `{SSHA}`, `$2...`, `$6$...` –∏ –¥—Ä.), –∞ –¥–ª—è –ø—Ä–æ–ø—Ä–∏–µ—Ç–∞—Ä–Ω—ã—Ö –∑–∞–ø–∏—Å–µ–π Kerio `D3S:` –≥–µ–Ω–µ—Ä–∏—Ä—É–µ—Ç –Ω–∞–¥—ë–∂–Ω—ã–µ —Å–ª—É—á–∞–π–Ω—ã–µ –ø–∞—Ä–æ–ª–∏.
+  - `random`: –≥–µ–Ω–µ—Ä–∏—Ä—É–µ—Ç –Ω–æ–≤—ã–µ —Å–ª—É—á–∞–π–Ω—ã–µ –ø–∞—Ä–æ–ª–∏ –¥–ª—è –≤—Å–µ—Ö –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª–µ–π.
+  - `default`: –∑–∞–¥–∞—ë—Ç –µ–¥–∏–Ω—ã–π –ø–∞—Ä–æ–ª—å –¥–ª—è –≤—Å–µ—Ö –ø–µ—Ä–µ–Ω–æ—Å–∏–º—ã—Ö –∞–∫–∫–∞—É–Ω—Ç–æ–≤.
+  - –°–æ—Ö—Ä–∞–Ω—è–µ—Ç –∏—Ç–æ–≥–æ–≤—ã–π CSV-–æ—Ç—á—ë—Ç —Å –ø–∞—Ä–æ–ª—è–º–∏ –∏ –ø—Ä–∞–≤–∏–ª–∞–º–∏ –ø–µ—Ä–µ—Å—ã–ª–∫–∏ —Å –ø—Ä–∞–≤–∞–º–∏ `0600`.
+- **–ò–Ω—Ç–µ—Ä–∞–∫—Ç–∏–≤–Ω—ã–π –∏ –∞–≤—Ç–æ–º–∞—Ç–∏—á–µ—Å–∫–∏–π —Ä–µ–∂–∏–º—ã**: –∑–∞–ø—Ä–∞—à–∏–≤–∞–µ—Ç –ª—é–±–æ–π –Ω–µ–∑–∞–¥–∞–Ω–Ω—ã–π –ø–∞—Ä–∞–º–µ—Ç—Ä —Å –ø–æ–¥—Å–∫–∞–∑–∫–æ–π –∑–Ω–∞—á–µ–Ω–∏—è –ø–æ —É–º–æ–ª—á–∞–Ω–∏—é, –ª–∏–±–æ –∑–∞–ø—É—Å–∫–∞–µ—Ç—Å—è –±–µ–∑ –≤–æ–ø—Ä–æ—Å–æ–≤ —Å —Ñ–ª–∞–≥–æ–º `--yes` (`-y`).
 
-#### ÑPÑÇÑyÑ}ÑuÑÇÑç ÑxÑpÑÅÑÖÑÉÑ{Ñp
+#### –ü—Ä–∏–º–µ—Ä—ã –∑–∞–ø—É—Å–∫–∞
 
-**ÑPÑÇÑuÑtÑÅÑÇÑÄÑÉÑ}ÑÄÑÑÑÇ Ñ}ÑyÑsÑÇÑpÑàÑyÑy (`--dry-run`, ÑqÑuÑx ÑrÑ~ÑuÑÉÑuÑ~ÑyÑë ÑyÑxÑ}ÑuÑ~ÑuÑ~ÑyÑz):**
+**–ü—Ä–µ–¥–ø—Ä–æ—Å–º–æ—Ç—Ä –º–∏–≥—Ä–∞—Ü–∏–∏ (`--dry-run`, –±–µ–∑ –≤–Ω–µ—Å–µ–Ω–∏—è –∏–∑–º–µ–Ω–µ–Ω–∏–π):**
 ```bash
-python3 kerio2stalwart.py Ä
-  --users-cfg /opt/kerio/mailserver/users.cfg Ä
-  --domain-dir /store/mail/example.com Ä
-  --url [https://mail.example.com](https://mail.example.com) Ä
+python3 kerio2stalwart.py \
+  --users-cfg /opt/kerio/mailserver/users.cfg \
+  --domain-dir /store/mail/example.com \
+  --url [https://mail.example.com](https://mail.example.com) \
   --dry-run
 ```
 
-**ÑPÑÄÑ|Ñ~ÑpÑë Ñ}ÑyÑsÑÇÑpÑàÑyÑë ÑtÑÄÑ}ÑuÑ~Ñp (ÑÉ ÑyÑ~ÑÑÑuÑÇÑpÑ{ÑÑÑyÑrÑ~ÑçÑ} ÑÅÑÄÑtÑÑÑrÑuÑÇÑwÑtÑuÑ~ÑyÑuÑ} ÑÄÑÅÑàÑyÑÄÑ~ÑpÑ|ÑéÑ~ÑçÑá ÑÅÑpÑÇÑpÑ}ÑuÑÑÑÇÑÄÑr):**
+**–ü–æ–ª–Ω–∞—è –º–∏–≥—Ä–∞—Ü–∏—è –¥–æ–º–µ–Ω–∞ (—Å –∏–Ω—Ç–µ—Ä–∞–∫—Ç–∏–≤–Ω—ã–º –ø–æ–¥—Ç–≤–µ—Ä–∂–¥–µ–Ω–∏–µ–º –æ–ø—Ü–∏–æ–Ω–∞–ª—å–Ω—ã—Ö –ø–∞—Ä–∞–º–µ—Ç—Ä–æ–≤):**
 ```bash
-python3 kerio2stalwart.py Ä
-  --users-cfg /opt/kerio/mailserver/users.cfg Ä
-  --domain-dir /store/mail/example.com Ä
+python3 kerio2stalwart.py \
+  --users-cfg /opt/kerio/mailserver/users.cfg \
+  --domain-dir /store/mail/example.com \
   --url [https://mail.example.com](https://mail.example.com)
 ```
 
-**ÑMÑyÑsÑÇÑpÑàÑyÑë ÑÑÑÄÑ|ÑéÑ{ÑÄ ÑpÑ{Ñ{ÑpÑÖÑ~ÑÑÑÄÑr Ñy ÑpÑ|ÑyÑpÑÉÑÄÑr (ÑqÑuÑx ÑyÑ}ÑÅÑÄÑÇÑÑÑp ÑÅÑyÑÉÑuÑ}):**
+**–ú–∏–≥—Ä–∞—Ü–∏—è —Ç–æ–ª—å–∫–æ –∞–∫–∫–∞—É–Ω—Ç–æ–≤ –∏ –∞–ª–∏–∞—Å–æ–≤ (–±–µ–∑ –∏–º–ø–æ—Ä—Ç–∞ –ø–∏—Å–µ–º):**
 ```bash
-python3 kerio2stalwart.py Ä
-  --yes Ä
-  --skip-mail Ä
-  --users-cfg /opt/kerio/mailserver/users.cfg Ä
-  --domain-dir /store/mail/example.com Ä
+python3 kerio2stalwart.py \
+  --yes \
+  --skip-mail \
+  --users-cfg /opt/kerio/mailserver/users.cfg \
+  --domain-dir /store/mail/example.com \
   --url [https://mail.example.com](https://mail.example.com)
 ```
+
