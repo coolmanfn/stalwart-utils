@@ -27,6 +27,7 @@ LISTENERS_SPEC = [
     ("pop3", 110, "pop3", False),
     ("pop3s", 995, "pop3", True),
     ("sieve", 4190, "manageSieve", False),
+    ("https", 443, "http", True),
 ]
 
 MESSAGES: dict[str, dict[str, str]] = {
@@ -46,7 +47,8 @@ MESSAGES: dict[str, dict[str, str]] = {
         "listener_updated": "[~] Обновлён listener '{name}' ({bind}, cert={cert})",
         "listener_ok": "[OK] Listener '{name}' уже настроен ({bind})",
         "listener_created": "[+] Создан listener '{name}' -> {bind} ({lid}, cert={cert})",
-        "role_updated": "[~] Добавлены новые listeners в x:ServerRole ({id})",
+        "listener_bind_conflict": "[!] Внимание: адрес {bind} уже занят другим listener '{other}' ({oid}), создание '{name}' пропущено",
+        "role_updated": "[~] Обновлён список listeners в x:ServerRole ({id})",
         "role_warn": "[!] Предупреждение при проверке x:ServerRole: {err}",
         "mta_inbound": "[+] Настроено входящее MTA приветствие для {ip} -> {host}",
         "mta_strategy_updated": "[~] Обновлена исходящая стратегия '{name}' (IP={ip}, EHLO={host})",
@@ -116,7 +118,8 @@ MESSAGES: dict[str, dict[str, str]] = {
         "listener_updated": "[~] Updated listener '{name}' ({bind}, cert={cert})",
         "listener_ok": "[OK] Listener '{name}' is already configured ({bind})",
         "listener_created": "[+] Created listener '{name}' -> {bind} ({lid}, cert={cert})",
-        "role_updated": "[~] Added new listeners to x:ServerRole ({id})",
+        "listener_bind_conflict": "[!] Warning: {bind} is already bound by another listener '{other}' ({oid}), skipping '{name}'",
+        "role_updated": "[~] Updated listeners list in x:ServerRole ({id})",
         "role_warn": "[!] Warning while checking x:ServerRole: {err}",
         "mta_inbound": "[+] Configured inbound MTA greeting for {ip} -> {host}",
         "mta_strategy_updated": "[~] Updated outbound strategy '{name}' (IP={ip}, EHLO={host})",
@@ -350,8 +353,14 @@ def ensure_listeners(
     local_ip: str,
     cert_id: str | None,
 ) -> list[tuple[str, str, int, str, bool]]:
-    existing = {item.get("name"): item for item in client.get_all("x:NetworkListener")}
-    created_ids = []
+    all_listeners = client.get_all("x:NetworkListener")
+    existing = {item.get("name"): item for item in all_listeners}
+    bind_to_listener: dict[str, dict] = {}
+    for item in all_listeners:
+        for b in extract_bind_set(item.get("bind")):
+            bind_to_listener[b] = item
+
+    domain_listener_ids: list[str] = []
     plan = build_listener_plan(domain)
 
     ip_formatted = f"[{local_ip}]" if ":" in local_ip else local_ip
@@ -361,6 +370,7 @@ def ensure_listeners(
 
         if name in existing:
             cur = existing[name]
+            domain_listener_ids.append(cur["id"])
             patch = {}
             cur_binds = extract_bind_set(cur.get("bind"))
             if cur_binds != {bind_addr}:
@@ -380,6 +390,19 @@ def ensure_listeners(
             else:
                 print(t("listener_ok", name=name, bind=bind_addr))
         else:
+            conflict = bind_to_listener.get(bind_addr)
+            if conflict and conflict.get("name") != name:
+                print(
+                    t(
+                        "listener_bind_conflict",
+                        bind=bind_addr,
+                        other=conflict.get("name"),
+                        oid=conflict.get("id"),
+                        name=name,
+                    )
+                )
+                continue
+
             payload = {
                 "name": name,
                 "protocol": proto,
@@ -390,10 +413,10 @@ def ensure_listeners(
             if cert_id:
                 payload["defaultCertificateId"] = cert_id
             lid = client.create("x:NetworkListener", payload)
-            created_ids.append(lid)
+            domain_listener_ids.append(lid)
             print(t("listener_created", name=name, bind=bind_addr, lid=lid, cert=cert_id or "global"))
 
-    if created_ids:
+    if domain_listener_ids:
         try:
             roles = client.get_all("x:ServerRole")
             for role in roles:
@@ -402,7 +425,7 @@ def ensure_listeners(
                     raw_ids = listeners_cfg.get("listenerIds") or {}
                     if isinstance(raw_ids, dict):
                         merged_map = {k: True for k, v in raw_ids.items() if v}
-                        for lid in created_ids:
+                        for lid in domain_listener_ids:
                             merged_map[lid] = True
                         if merged_map != raw_ids:
                             client.update(
@@ -412,7 +435,7 @@ def ensure_listeners(
                             )
                             print(t("role_updated", id=role["id"]))
                     elif isinstance(raw_ids, list):
-                        merged_list = list(dict.fromkeys(raw_ids + created_ids))
+                        merged_list = list(dict.fromkeys(raw_ids + domain_listener_ids))
                         if merged_list != raw_ids:
                             client.update(
                                 "x:ServerRole",
@@ -696,10 +719,23 @@ def probe_service(
             elif proto == "pop3":
                 banner = recv_line(tls_sock)
                 tls_sock.sendall(b"QUIT\r\n")
+            elif proto == "http":
+                host_hdr = sni_hostname or ehlo_name
+                req = f"HEAD / HTTP/1.1\r\nHost: {host_hdr}\r\nConnection: close\r\n\r\n".encode("ascii")
+                tls_sock.sendall(req)
+                banner = recv_line(tls_sock)
             else:
                 banner = recv_line(tls_sock)
             tls_sock.close()
             return True, banner, names
+
+        if proto == "http":
+            host_hdr = sni_hostname or ehlo_name
+            req = f"HEAD / HTTP/1.1\r\nHost: {host_hdr}\r\nConnection: close\r\n\r\n".encode("ascii")
+            raw_sock.sendall(req)
+            banner = recv_line(raw_sock)
+            raw_sock.close()
+            return True, banner, []
 
         if proto == "smtp":
             banner_lines = read_smtp_multilines(raw_sock)
